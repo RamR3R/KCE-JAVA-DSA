@@ -1,6 +1,6 @@
 package string1;
 
-import java.util.HashMap;
+//import java.util.HashMap;
 
 public class StringCompression {
 	

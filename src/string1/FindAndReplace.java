@@ -19,9 +19,7 @@ public class FindAndReplace {
 			{
 				if(!map1.containsKey(pattern.charAt(i)))
 				{
-					
 					map1.put(pattern.charAt(i), word.charAt(i));
-					
 					if(map2.containsKey(word.charAt(i)))
 					{
 						flag = false;
