@@ -1,5 +1,7 @@
 package slidingWindow;
 
+//import java.util.HashSet;
+
 public class MinimumSizeSubArray {
 
 	public static void main(String[] args) {
@@ -24,6 +26,7 @@ public class MinimumSizeSubArray {
 				window -= nums[start];
 				start++;
 			}
+//			HashSet<Integer> set = new HashSet<Integer>();
 			end++;
 		}
 		System.out.println(minLen == Integer.MAX_VALUE ? 0 : minLen );
