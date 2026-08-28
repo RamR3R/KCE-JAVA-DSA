@@ -1,11 +1,11 @@
 package trees;
-class TreeNode
+class TreeNode1
 {
 	int val;
-	TreeNode left;
-	TreeNode right;
+	TreeNode1 left;
+	TreeNode1 right;
 	
-	TreeNode(int value)
+	TreeNode1(int value)
 	{
 		this.val = value;
 	}
