@@ -5,6 +5,18 @@ import java.util.HashMap;
 import java.util.List;
 
 public class Representation {
+	
+	static void dfs(int node , boolean[] visited 
+			, HashMap<Integer , List<Integer>> adjList)
+	{
+		visited[node] = true;
+		System.out.print(node + " -> ");
+		for(int nei : adjList.get(node))
+		{
+			if(!visited[nei])
+				dfs(nei , visited , adjList);
+		}
+	}
 
 	public static void main(String[] args) {
 		int n = 7;
@@ -49,6 +61,11 @@ public class Representation {
 				System.out.print(adjMat[i][j] + " ");
 			System.out.println();
 		}
+		
+		//from here we have the traversals
+		boolean[] visited = new boolean[n + 1];
+		int src = 1;
+		dfs(src , visited , adjList);
 
 	}
 
