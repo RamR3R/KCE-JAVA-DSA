@@ -2,7 +2,9 @@ package graph;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 public class Representation {
 	
@@ -16,6 +18,28 @@ public class Representation {
 			if(!visited[nei])
 				dfs(nei , visited , adjList);
 		}
+	}
+	
+	static void bfs(int node , boolean[] visited
+			, HashMap<Integer , List<Integer>> adjList)
+	{
+		Queue<Integer> q = new LinkedList<>();
+		q.offer(node);
+		visited[node] = true;
+		while(!q.isEmpty())
+		{
+			int curr = q.poll();
+			System.out.print(curr + " -> ");
+			for(int nei : adjList.get(curr))
+			{
+				if(!visited[nei])
+				{
+					visited[nei] = true;
+					q.offer(nei);
+				}
+			}
+		}
+		
 	}
 
 	public static void main(String[] args) {
@@ -65,8 +89,9 @@ public class Representation {
 		//from here we have the traversals
 		boolean[] visited = new boolean[n + 1];
 		int src = 1;
-		dfs(src , visited , adjList);
-
+//		dfs(src , visited , adjList);
+		System.out.println();
+		bfs(src , visited , adjList);
 	}
 
 }
