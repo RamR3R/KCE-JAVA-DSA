@@ -1,6 +1,7 @@
 package graph;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.PriorityQueue;
@@ -30,27 +31,34 @@ public class PrimsAlgo {
 		
 		boolean[] visited = new boolean[v];
 		int total = 0;
-		int src = 8;
+		List<List<Integer>> mst = new ArrayList<>();
+		int src = 0;
 		
-		pq.offer(new int[] {src , 0});
+		pq.offer(new int[] {src , 0 , -1});
 		
 		while(!pq.isEmpty())
 		{
 			int[] curr = pq.poll();
 			int node = curr[0];
-			int edgeWeight = curr[1];	
+			int edgeWeight = curr[1];
+			int parent = curr[2];
 			if(visited[node]) continue;
 			
 			visited[node] = true;
 			total += edgeWeight;
 			
+			if(parent != -1)
+			mst.add(new ArrayList<>(
+					Arrays.asList(parent,node,edgeWeight)));
+			
 			for(int[] nei : adjList.get(node))
 			{
 				if(visited[nei[0]]) continue;
-				pq.offer(new int[] {nei[0] , nei[1]});
+				pq.offer(new int[] {nei[0] , nei[1] , node});
 			}
 		}
 		System.out.println(total);
+		System.out.println(mst);
 	}
 
 }

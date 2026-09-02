@@ -27,7 +27,7 @@ public class ShortestPathWeighted {
 				);
 		
 		int src = 0;
-		int des = 3;
+//		int des = 3;
 		distance[src] = 0;
 		pq.offer(new int[] {src , 0});
 		
